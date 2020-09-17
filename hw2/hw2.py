@@ -1,7 +1,8 @@
 # Author: Anikate Ganju
 #Date due: 9/15/2020
 
-#import dask
+import dask
+import os
 from dask import delayed
 from dask.distributed import Client
 import typing
@@ -30,9 +31,7 @@ def count_them(word_list: typing.List[str], file_list: typing.List[str]) -> typi
     compare=dict()
     with Client(n_workers=4) as c:
         for i in file_list:
-            a=open(file_list[i],'r')
-            #read file
-            #tokenize the stringfile
+            print(i)
 
 
 
@@ -57,20 +56,38 @@ def mergesort(file_list: typing.List[str]) -> typing.Tuple[typing.Any, typing.Li
     pass
 
 #file1=open('C:\Users\anika\Desktop\DS410\startercode\hw2\data_files\part-00000', 'r')
-file1=open('part-00000',encoding="utf8")
-file1b=file1.readlines()
-#file2=open('C:\Users\anika\Desktop\DS410\startercode\hw2\data_files\part-00001', 'r')
+'''
+with open(str(a),'r') as f:
+    mylist = f.read().rstrip('\\n')
+'''
+file1=open('part-00000','r')
+#print(mylist)
 file2=open('part-00001','r')
-#file3=open('C:\Users\anika\Desktop\DS410\startercode\hw2\data_files\part-00002', 'r')
 file3=open('part-00002','r')
-#file4=open('C:\Users\anika\Desktop\DS410\startercode\hw2\data_files\part-00003', 'r')
 file4=open('part-00003','r')
+
 filelist=[file1,file2,file3,file4]
+data=[]
+for i in filelist:
+    a=i.readlines()
+    for line in a:
+        data.append(line.rstrip('\n'))
 
+print(data)
 
-a=open(filelist[1],encoding="utf8")
-print(a)
-print(mylist)
+'''
+#encoding="utf8"
+numOfFiles = len(filelist)
+data = []
 
+for files in range(1, numOfFiles+1):
+    with open(str(filelist), 'r') as f:
+        #do whatever data processing you need to do
+        fileData = f.read()
+        data.append(fileData)
+        print(data)
+
+#print(fileData)
+'''
 
 
