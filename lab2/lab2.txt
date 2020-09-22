@@ -1,0 +1,36 @@
+#Author: Anikate Ganju 
+#I collaborated with:
+#No one
+# ...
+#
+
+
+# 1. create a directory lab2_hdfs in your HDFS home directory
+
+hdfs dfs -mkdir lab2_hdfs
+
+# 2. upload the files part-00000 through part-00003 into that directory 
+# (you can find them on canvas)
+hdfs dfs -put part* /lab2_words
+
+
+# 3. move these files to a new HDFS directory called lab2_words
+hdfs dfs -put part* /lab2_words
+
+
+# 4. delete the lab2_hdfs directory
+hdfs dfs -rmr lab2_hdfs
+-skipTrash to avoid trash file
+
+
+# 5. Display the last 1kb of the part-00002 file that you earlier put in HDFS
+hdfs dfs -tail lab2_words/part-00002
+
+
+# 6. Display information about the filesize in bytes, replication information, 
+# user name of the file owner, and modification date for the part-00001 file
+# that you earlier put in HDFS
+hdfs dfs -du -h lab2_words/part-00001
+hdfs dfs -ls lab2_words/part-00001
+
+
