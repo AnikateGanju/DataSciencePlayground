@@ -75,19 +75,5 @@ for i in filelist:
 
 print(data)
 
-'''
-#encoding="utf8"
-numOfFiles = len(filelist)
-data = []
-
-for files in range(1, numOfFiles+1):
-    with open(str(filelist), 'r') as f:
-        #do whatever data processing you need to do
-        fileData = f.read()
-        data.append(fileData)
-        print(data)
-
-#print(fileData)
-'''
 
 
